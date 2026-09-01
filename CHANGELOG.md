@@ -7,12 +7,11 @@ adheres to [Semantic Versioning](https://semver.org) as described in
 
 ## [Unreleased]
 
-The first GitHub release (tag `1.0.0`) will be cut after in-vault testing,
-ahead of submission to the Obsidian community theme directory.
+Nothing yet.
 
 ## [1.0.0] — 2026-09-01
 
-Initial version.
+Initial release.
 
 ### Added
 
