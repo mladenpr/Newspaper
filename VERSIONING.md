@@ -53,6 +53,11 @@ that can break their customizations:
    `manifest.json` and `theme.css` attached — the two files Obsidian
    downloads for installs and updates.
 
+No terminal handy? The same workflow can be run manually from
+**GitHub → Actions → Release theme → Run workflow** on `main`: it reads
+the version from `manifest.json`, creates the matching tag, and publishes
+the release.
+
 Notes that keep releases working:
 
 - The community directory reads `manifest.json` from the HEAD of the
