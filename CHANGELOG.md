@@ -9,6 +9,21 @@ adheres to [Semantic Versioning](https://semver.org) as described in
 
 Nothing yet.
 
+## [1.0.1] — 2026-09-01
+
+Compatibility fixes for the community directory's automated review.
+
+### Fixed
+
+- Link underline tinting no longer uses `color-mix()`; the hairline
+  underline colour now comes from the accent variables, which render
+  identically and work on older engines.
+- Raised `minAppVersion` to 1.5.0 so the declared floor matches the
+  support level of the `text-decoration-*` properties the underline
+  styling relies on.
+- Removed placeholder-style wording ("coming soon") from the README's
+  installation section, flagged by the automated review.
+
 ## [1.0.0] — 2026-09-01
 
 Initial release.
