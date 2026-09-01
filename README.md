@@ -57,12 +57,12 @@ settings.*
 
 ## Installation
 
-### From the community themes (coming soon)
+### From the community themes
 
-Newspaper will be submitted to the Obsidian community theme directory once
-in-vault testing is complete — the plan lives in
-[docs/PUBLISHING.md](docs/PUBLISHING.md). After acceptance it installs from
-**Settings → Appearance → Themes → Manage**.
+In Obsidian, open **Settings → Appearance → Themes → Manage**, search for
+**Newspaper**, and select **Use**. If the theme is not listed yet — the
+directory submission may still be under review — install it manually or
+via BRAT below.
 
 ### Manual
 
