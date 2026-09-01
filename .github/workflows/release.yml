@@ -1,0 +1,39 @@
+name: Release theme
+
+# Publishes a GitHub release when a version tag is pushed.
+# Obsidian installs and updates themes from the release whose tag matches
+# the version in manifest.json, so the tag must be the bare version number
+# (e.g. 1.0.0 — no "v" prefix) and must agree with the manifest.
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify tag matches manifest.json version
+        run: |
+          MANIFEST_VERSION="$(python3 -c 'import json; print(json.load(open("manifest.json"))["version"])')"
+          TAG="${GITHUB_REF#refs/tags/}"
+          echo "tag=$TAG manifest=$MANIFEST_VERSION"
+          if [ "$MANIFEST_VERSION" != "$TAG" ]; then
+            echo "::error::Tag $TAG does not match manifest.json version $MANIFEST_VERSION" >&2
+            exit 1
+          fi
+
+      - name: Create GitHub release with theme assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          gh release create "$TAG" manifest.json theme.css \
+            --title "Broadsheet $TAG" \
+            --generate-notes
