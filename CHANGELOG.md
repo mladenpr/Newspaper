@@ -28,5 +28,6 @@ Initial version.
 - Warm light palette (ivory paper, warm near-black ink, clay/claret accent)
   and warm charcoal dark palette; muted ink-like section colours for
   callouts in both modes.
-- Quiet interface: system sans chrome, warm caret and selection, reduced
-  corner radii, warm scrollbars.
+- Quiet interface: Georgia serif chrome at small sizes, opaque warm window
+  frame (no grey glass with Translucent window), warm caret and selection,
+  reduced corner radii, warm scrollbars.

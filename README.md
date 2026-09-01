@@ -15,8 +15,8 @@ an industrial dashboard.
   Georgia, whichever your system has — with generous 1.7 leading and a
   comfortable ~42 em column. No font files are bundled and no network is
   used: the theme works offline, on desktop and mobile, out of the box.
-- The interface steps back into a small, quiet system sans, so your writing
-  is the loudest thing on screen.
+- The interface is set in Georgia — the classic screen serif — at small,
+  quiet sizes, so the whole app reads like one printed page.
 - Old-style figures in running text; lining tabular figures in tables and
   code, where numbers must line up.
 - A restrained heading scale with tightened tracking on the display sizes.
@@ -97,14 +97,14 @@ or set the others under **Settings → Appearance → Font**:
   theme's clay/claret default.
 - Turn on **Readable line length** for the proper single-column measure.
 - Write `###### like this` above a heading for a newspaper-style kicker.
-- Want the interface in the same serif as your notes? Set
-  **Settings → Appearance → Font** (the interface font) to the serif your
-  notes resolve to — **Charter** on macOS/iOS, **Georgia** or **Cambria**
-  on Windows. Note text is controlled separately under **Text font**.
-- If the window chrome looks grey instead of warm paper, check
-  **Settings → Appearance → Translucent window**: macOS vibrancy frosts
-  the theme's colours. The theme keeps a warm tint when it's on, but the
-  true paper tones need it off.
+- The interface defaults to **Georgia**; your own choice under
+  **Settings → Appearance → Font** always wins, so set a sans there if
+  you prefer quieter chrome. Note text is controlled separately under
+  **Text font**.
+- The theme keeps the window frame **opaque paper** even when
+  **Settings → Appearance → Translucent window** is on — no grey glass.
+  If you still see system material anywhere (macOS Liquid Glass), turn
+  that setting off.
 
 ## Versioning and releases
 
