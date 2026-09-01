@@ -26,10 +26,16 @@ body {
     "Roboto", "Helvetica Neue", "Arial", sans-serif;
   --newsprint-mono: ui-monospace, "SF Mono", "Cascadia Code",
     "JetBrains Mono", "Menlo", "Consolas", monospace;
+  --newsprint-serif-ui: "Georgia", "Charter", "Bitstream Charter",
+    "Iowan Old Style", "Cambria", "Times New Roman", serif;
 
-  /* Notes are set in serif; the surrounding chrome in a quiet sans. */
+  /* Notes in a text serif; the chrome in Georgia — the classic
+     screen serif — kept small and quiet so the whole app reads
+     like one printed page. Prefer a sans interface? Set it under
+     Settings → Appearance → Font, or point --font-interface-theme
+     at --newsprint-sans in a snippet. */
   --font-text-theme: var(--newsprint-serif);
-  --font-interface-theme: var(--newsprint-sans);
+  --font-interface-theme: var(--newsprint-serif-ui);
   --font-monospace-theme: var(--newsprint-mono);
 }
 
@@ -106,10 +112,10 @@ body {
   --scrollbar-thumb-bg: rgba(60, 50, 35, 0.14);
   --scrollbar-active-thumb-bg: rgba(60, 50, 35, 0.3);
 
-  /* Keep chrome surfaces warm, and keep the paper tone even
-     when Translucent window is enabled on macOS. */
+  /* Keep chrome surfaces warm — and fully opaque: no grey glass
+     shows through, even with Translucent window enabled on macOS. */
   --background-secondary-alt: var(--color-base-10);
-  --workspace-background-translucent: rgba(250, 245, 237, 0.65);
+  --workspace-background-translucent: var(--color-base-05);
 }
 
 /* ------------------------------------------------------------
@@ -163,10 +169,10 @@ body {
   --scrollbar-thumb-bg: rgba(230, 220, 200, 0.1);
   --scrollbar-active-thumb-bg: rgba(230, 220, 200, 0.25);
 
-  /* Keep chrome surfaces warm, and keep the ink tone even
-     when Translucent window is enabled on macOS. */
+  /* Keep chrome surfaces warm — and fully opaque: no grey glass
+     shows through, even with Translucent window enabled on macOS. */
   --background-secondary-alt: var(--color-base-05);
-  --workspace-background-translucent: rgba(32, 30, 27, 0.65);
+  --workspace-background-translucent: var(--color-base-05);
 }
 
 /* ------------------------------------------------------------
