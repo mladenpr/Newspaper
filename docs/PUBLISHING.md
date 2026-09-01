@@ -1,4 +1,4 @@
-# Publishing Broadsheet to the Obsidian community themes
+# Publishing Newspaper to the Obsidian community themes
 
 This is the path from this repository to **Settings → Appearance → Themes**
 in everyone's Obsidian. Follow it top to bottom; nothing here needs to be
@@ -30,12 +30,12 @@ Guidelines the CSS must follow:
 | No `!important` declarations | ✅ none |
 | Prefer Obsidian's CSS variables over complex selectors | ✅ variable-first throughout |
 | Low-specificity selectors | ✅ |
-| Theme name: no "Obsidian" in it, not already taken | ✅ "Broadsheet" — verified free against all 719 community themes on 2026-09-01 |
+| Theme name: no "Obsidian" in it, not already taken | ✅ "Newspaper" — verified free against all 719 community themes on 2026-09-01 |
 
 ## 2 · Test in a real vault (do this first)
 
 1. Copy `manifest.json` and `theme.css` into
-   `<vault>/.obsidian/themes/Broadsheet/` in a **sandbox vault**, then in
+   `<vault>/.obsidian/themes/Newspaper/` in a **sandbox vault**, then in
    your main vault.
 2. Walk through both **light and dark** modes:
    - editing view and reading view, with and without Readable line length;

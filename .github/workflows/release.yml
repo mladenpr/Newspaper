@@ -35,5 +35,5 @@ jobs:
         run: |
           TAG="${GITHUB_REF#refs/tags/}"
           gh release create "$TAG" manifest.json theme.css \
-            --title "Broadsheet $TAG" \
+            --title "Newspaper $TAG" \
             --generate-notes

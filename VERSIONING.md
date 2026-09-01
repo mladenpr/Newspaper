@@ -1,6 +1,6 @@
 # Versioning
 
-Broadsheet follows [Semantic Versioning](https://semver.org) in the form
+Newspaper follows [Semantic Versioning](https://semver.org) in the form
 `MAJOR.MINOR.PATCH` (for example `1.2.0`). This matches what Obsidian
 requires for community themes: the version lives in `manifest.json` and every
 release is a GitHub release whose **tag is exactly the version number, with

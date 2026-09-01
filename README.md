@@ -1,4 +1,4 @@
-# Broadsheet
+# Newspaper
 
 A minimalist newspaper theme for [Obsidian](https://obsidian.md).
 
@@ -7,7 +7,7 @@ quiet interface, and serifs that are a pleasure to read and to write with.
 Think the article pages of the *Financial Times* or Anthropic's essays, not
 an industrial dashboard.
 
-![Broadsheet in light and dark mode](docs/assets/hero.png)
+![Newspaper in light and dark mode](docs/assets/hero.png)
 
 ## Typography first
 
@@ -59,17 +59,17 @@ settings.*
 
 ### From the community themes (coming soon)
 
-Broadsheet will be submitted to the Obsidian community theme directory once
+Newspaper will be submitted to the Obsidian community theme directory once
 in-vault testing is complete — the plan lives in
 [docs/PUBLISHING.md](docs/PUBLISHING.md). After acceptance it installs from
 **Settings → Appearance → Themes → Manage**.
 
 ### Manual
 
-1. In your vault, create the folder `.obsidian/themes/Broadsheet/`.
+1. In your vault, create the folder `.obsidian/themes/Newspaper/`.
 2. Copy `manifest.json` and `theme.css` from this repository into it.
 3. In Obsidian, open **Settings → Appearance → Themes** and select
-   **Broadsheet**.
+   **Newspaper**.
 
 ### Via BRAT
 
@@ -78,7 +78,7 @@ add `mladenpr/Newspaper` as a beta theme.
 
 ## Recommended fonts (optional)
 
-Broadsheet looks right out of the box on macOS, Windows, iOS and Android.
+Newspaper looks right out of the box on macOS, Windows, iOS and Android.
 If you want to get even closer to the FT / Anthropic article feel, install
 one of these free text serifs — the theme picks Charter up automatically,
 or set the others under **Settings → Appearance → Font**:
@@ -100,7 +100,7 @@ or set the others under **Settings → Appearance → Font**:
 
 ## Versioning and releases
 
-Broadsheet uses Semantic Versioning; the rules for what counts as a patch,
+Newspaper uses Semantic Versioning; the rules for what counts as a patch,
 minor, or major change — and the release procedure — are documented in
 [VERSIONING.md](VERSIONING.md). Every notable change is recorded in the
 [CHANGELOG](CHANGELOG.md). Releases are published automatically by a
