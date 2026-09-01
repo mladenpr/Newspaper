@@ -97,6 +97,14 @@ or set the others under **Settings → Appearance → Font**:
   theme's clay/claret default.
 - Turn on **Readable line length** for the proper single-column measure.
 - Write `###### like this` above a heading for a newspaper-style kicker.
+- Want the interface in the same serif as your notes? Set
+  **Settings → Appearance → Font** (the interface font) to the serif your
+  notes resolve to — **Charter** on macOS/iOS, **Georgia** or **Cambria**
+  on Windows. Note text is controlled separately under **Text font**.
+- If the window chrome looks grey instead of warm paper, check
+  **Settings → Appearance → Translucent window**: macOS vibrancy frosts
+  the theme's colours. The theme keeps a warm tint when it's on, but the
+  true paper tones need it off.
 
 ## Versioning and releases
 

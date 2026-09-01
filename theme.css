@@ -105,6 +105,11 @@ body {
 
   --scrollbar-thumb-bg: rgba(60, 50, 35, 0.14);
   --scrollbar-active-thumb-bg: rgba(60, 50, 35, 0.3);
+
+  /* Keep chrome surfaces warm, and keep the paper tone even
+     when Translucent window is enabled on macOS. */
+  --background-secondary-alt: var(--color-base-10);
+  --workspace-background-translucent: rgba(250, 245, 237, 0.65);
 }
 
 /* ------------------------------------------------------------
@@ -157,6 +162,11 @@ body {
 
   --scrollbar-thumb-bg: rgba(230, 220, 200, 0.1);
   --scrollbar-active-thumb-bg: rgba(230, 220, 200, 0.25);
+
+  /* Keep chrome surfaces warm, and keep the ink tone even
+     when Translucent window is enabled on macOS. */
+  --background-secondary-alt: var(--color-base-05);
+  --workspace-background-translucent: rgba(32, 30, 27, 0.65);
 }
 
 /* ------------------------------------------------------------
@@ -467,11 +477,20 @@ body {
   --titlebar-background: var(--background-secondary);
   --titlebar-background-focused: var(--background-secondary);
   --ribbon-background: var(--background-secondary);
+  --ribbon-background-collapsed: var(--background-secondary);
 
   --divider-color: var(--background-modifier-border);
   --divider-width: 1px;
 
+  /* The tab strip is paper too — no grey window frame. */
+  --tab-container-background: var(--background-secondary);
+  --tab-background-active: var(--background-primary);
+  --tab-divider-color: var(--background-modifier-border);
+  --tab-outline-color: var(--background-modifier-border);
   --tab-font-size: 13px;
+
+  --status-bar-background: var(--background-secondary);
+  --status-bar-border-color: var(--background-modifier-border);
 
   --nav-item-size: 13px;
   --nav-item-color: var(--text-muted);
