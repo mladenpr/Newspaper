@@ -9,6 +9,21 @@ adheres to [Semantic Versioning](https://semver.org) as described in
 
 Nothing yet.
 
+## [1.1.0] — 2026-09-10
+
+Theme options, with and without the Style Settings plugin.
+
+### Added
+
+- Style Settings support: a **Newspaper** section with text width, focus
+  mode, line height, sans-serif interface, justified text with hyphenation,
+  drop cap, hide masthead/section rules, paper tone (Ivory / Bright /
+  Sepia), ink tone (Charcoal / True black), link underline style, blockquote
+  style, table style, and alternate checkbox states.
+- Plugin-free per-note widths via the `narrow`, `wide` and `full`
+  cssclasses, and `--newsprint-line-width` / `--newsprint-line-height`
+  variables for one-line CSS snippets.
+
 ## [1.0.1] — 2026-09-01
 
 Compatibility fixes for the community directory's automated review.
