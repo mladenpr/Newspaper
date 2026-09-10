@@ -46,9 +46,11 @@ body {
    corner radii — printed pages don't have rounded corners.
    ------------------------------------------------------------ */
 body {
-  --line-height-normal: 1.7;
+  --newsprint-line-height: 1.7;
+  --line-height-normal: var(--newsprint-line-height);
   --p-spacing: 0.9em;
-  --file-line-width: 42em;
+  --newsprint-line-width: 42em;
+  --file-line-width: var(--newsprint-line-width);
   --normal-weight: 400;
   --bold-weight: 700;
 
@@ -511,4 +513,485 @@ body {
 /* Properties panel in the interface sans. */
 .metadata-container {
   font-family: var(--font-interface);
+}
+
+/* ------------------------------------------------------------
+   15 · SETTINGS
+
+   Everything below is optional. Without the Style Settings
+   plugin the theme runs on the defaults you see above; with it,
+   Settings → Style Settings → Newspaper offers the controls
+   declared in the block that follows. Each control either sets
+   a --newsprint-* variable (settable from a CSS snippet too) or
+   adds a class to <body>.
+
+   Plugin-free per-note widths: add `narrow`, `wide` or `full`
+   to a note's cssclasses property.
+   ------------------------------------------------------------ */
+
+/* @settings
+
+name: Newspaper
+id: newspaper
+settings:
+  -
+    id: newsprint-layout
+    title: Layout
+    type: heading
+    level: 1
+    collapsed: false
+  -
+    id: newsprint-line-width
+    title: Text width
+    description: "Line length of notes when Readable line length is on. Per-note overrides: add narrow, wide or full to a note's cssclasses."
+    type: variable-number-slider
+    default: 42
+    min: 28
+    max: 90
+    step: 1
+    format: em
+  -
+    id: newsprint-focus
+    title: Focus mode
+    description: "Hide the ribbon and status bar, and fade the tab bar until you hover it. Also available as a command."
+    type: class-toggle
+    default: false
+    addCommand: true
+  -
+    id: newsprint-typography
+    title: Typography
+    type: heading
+    level: 1
+    collapsed: false
+  -
+    id: newsprint-line-height
+    title: Line height
+    description: "Leading of note text."
+    type: variable-number-slider
+    default: 1.7
+    min: 1.4
+    max: 2
+    step: 0.05
+  -
+    id: newsprint-ui-sans
+    title: Sans-serif interface
+    description: "Set the interface (sidebars, tabs, labels) in the system sans instead of Georgia."
+    type: class-toggle
+    default: false
+  -
+    id: newsprint-justify
+    title: Justified text
+    description: "Justify paragraphs with automatic hyphenation, like newspaper columns."
+    type: class-toggle
+    default: false
+  -
+    id: newsprint-dropcap
+    title: Drop cap
+    description: "Open each note with a drop cap on the first paragraph (reading view)."
+    type: class-toggle
+    default: false
+  -
+    id: newsprint-no-rules
+    title: Hide masthead and section rules
+    description: "Remove the hairlines under the note title and under H2 headings."
+    type: class-toggle
+    default: false
+  -
+    id: newsprint-paper
+    title: Paper & ink
+    type: heading
+    level: 1
+    collapsed: false
+  -
+    id: newsprint-paper-tone
+    title: Paper tone (light mode)
+    description: "Ivory is the default. Bright is a cleaner white; Sepia is aged newsprint."
+    type: class-select
+    allowEmpty: false
+    default: newsprint-paper-ivory
+    options:
+      -
+        label: Ivory
+        value: newsprint-paper-ivory
+      -
+        label: Bright
+        value: newsprint-paper-bright
+      -
+        label: Sepia
+        value: newsprint-paper-sepia
+  -
+    id: newsprint-ink-tone
+    title: Ink tone (dark mode)
+    description: "Charcoal is the default. True black suits OLED screens."
+    type: class-select
+    allowEmpty: false
+    default: newsprint-ink-charcoal
+    options:
+      -
+        label: Charcoal
+        value: newsprint-ink-charcoal
+      -
+        label: True black
+        value: newsprint-ink-black
+  -
+    id: newsprint-elements
+    title: Elements
+    type: heading
+    level: 1
+    collapsed: false
+  -
+    id: newsprint-links
+    title: Link underlines
+    type: class-select
+    allowEmpty: false
+    default: newsprint-links-hairline
+    options:
+      -
+        label: Hairline (default)
+        value: newsprint-links-hairline
+      -
+        label: On hover only
+        value: newsprint-links-hover
+      -
+        label: None
+        value: newsprint-links-none
+  -
+    id: newsprint-quotes
+    title: Blockquote style
+    description: "Pull quote applies in reading view."
+    type: class-select
+    allowEmpty: false
+    default: newsprint-quote-rule
+    options:
+      -
+        label: Left rule (default)
+        value: newsprint-quote-rule
+      -
+        label: Centered pull quote
+        value: newsprint-quote-pull
+  -
+    id: newsprint-tables
+    title: Table style
+    type: class-select
+    allowEmpty: false
+    default: newsprint-table-hairline
+    options:
+      -
+        label: Hairlines (default)
+        value: newsprint-table-hairline
+      -
+        label: Zebra rows
+        value: newsprint-table-zebra
+  -
+    id: newsprint-checkboxes
+    title: Alternate checkboxes
+    description: "Extra task states drawn as glyphs: [-] cancelled, [>] forwarded, [<] scheduled, [?] question, [!] important, [i] info, [*] star."
+    type: class-toggle
+    default: false
+
+*/
+
+/* --- Layout: per-note widths without any plugin ------------- */
+.markdown-source-view.narrow,
+.markdown-preview-view.narrow {
+  --file-line-width: 34em;
+}
+
+.markdown-source-view.wide,
+.markdown-preview-view.wide {
+  --file-line-width: 62em;
+}
+
+.markdown-source-view.full,
+.markdown-preview-view.full {
+  --file-line-width: 100%;
+}
+
+/* --- Layout: focus mode ------------------------------------- */
+.newsprint-focus .workspace-ribbon.mod-left,
+.newsprint-focus .status-bar {
+  display: none;
+}
+
+.newsprint-focus .workspace-split.mod-root .workspace-tab-header-container {
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.newsprint-focus .workspace-split.mod-root .workspace-tab-header-container:hover {
+  opacity: 1;
+}
+
+/* --- Typography: sans-serif interface ----------------------- */
+.newsprint-ui-sans {
+  --font-interface-theme: var(--newsprint-sans);
+}
+
+/* --- Typography: justified text ----------------------------- */
+.newsprint-justify .markdown-rendered p,
+.newsprint-justify .markdown-preview-view p,
+.newsprint-justify .markdown-rendered li,
+.newsprint-justify .markdown-preview-view li,
+.newsprint-justify .markdown-source-view.mod-cm6 .cm-line:not([class*="HyperMD"]),
+.newsprint-justify .markdown-source-view.mod-cm6 .cm-line.HyperMD-list-line {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+/* --- Typography: drop cap on the lead paragraph ------------- */
+.newsprint-dropcap .markdown-preview-view .markdown-preview-sizer > .mod-header + div > p::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.8;
+  font-weight: 700;
+  padding: 0.1em 0.12em 0 0;
+  color: var(--text-normal);
+}
+
+/* --- Typography: masthead and section rules off ------------- */
+.newsprint-no-rules .inline-title {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.newsprint-no-rules .markdown-rendered h2,
+.newsprint-no-rules .markdown-preview-view h2,
+.newsprint-no-rules .markdown-source-view.mod-cm6 .HyperMD-header-2 {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* --- Paper & ink: alternate light tones --------------------- */
+.theme-light.newsprint-paper-bright {
+  --color-base-00: #fdfcfa;
+  --color-base-05: #f7f5f0;
+  --color-base-10: #f1eee8;
+  --color-base-20: #ebe7df;
+  --color-base-25: #e3dfd6;
+  --color-base-30: #d8d3c9;
+  --color-base-35: #c6c0b4;
+  --color-base-40: #aba59a;
+  --color-base-50: #878175;
+  --color-base-60: #69645b;
+  --color-base-70: #48443e;
+  --color-base-100: #1b1917;
+}
+
+.theme-light.newsprint-paper-sepia {
+  --color-base-00: #f2e8d5;
+  --color-base-05: #ebe0cb;
+  --color-base-10: #e5d9c2;
+  --color-base-20: #ded1b8;
+  --color-base-25: #d6c8ad;
+  --color-base-30: #cabaa0;
+  --color-base-35: #b8a78a;
+  --color-base-40: #9f8f79;
+  --color-base-50: #7d6f5c;
+  --color-base-60: #645746;
+  --color-base-70: #483d30;
+  --color-base-100: #231c13;
+}
+
+/* --- Paper & ink: true black for OLED ----------------------- */
+.theme-dark.newsprint-ink-black {
+  --color-base-00: #000000;
+  --color-base-05: #0d0d0c;
+  --color-base-10: #131312;
+  --color-base-20: #191917;
+  --color-base-25: #1f1e1c;
+  --color-base-30: #282722;
+  --color-base-35: #34332e;
+  --color-base-40: #4a4842;
+  --color-base-50: #6f6c64;
+  --color-base-60: #8f8b82;
+  --color-base-70: #b6b1a6;
+  --color-base-100: #ece7dc;
+}
+
+/* --- Elements: link underlines ------------------------------ */
+.newsprint-links-hover {
+  --link-decoration: none;
+  --link-external-decoration: none;
+  --link-decoration-hover: underline;
+}
+
+.newsprint-links-none {
+  --link-decoration: none;
+  --link-external-decoration: none;
+  --link-decoration-hover: none;
+}
+
+/* --- Elements: centered pull quote (reading view) ----------- */
+.newsprint-quote-pull .markdown-rendered blockquote,
+.newsprint-quote-pull .markdown-preview-view blockquote {
+  margin: 1.6em auto;
+  padding: 1em 2em 1.1em;
+  border-left: none;
+  border-top: 1px solid var(--background-modifier-border);
+  border-bottom: 1px solid var(--background-modifier-border);
+  text-align: center;
+  font-size: 1.15em;
+  line-height: 1.5;
+}
+
+.newsprint-quote-pull .markdown-rendered blockquote::before,
+.newsprint-quote-pull .markdown-preview-view blockquote::before {
+  content: "\201C";
+  display: block;
+  font-size: 2.6em;
+  line-height: 0.6;
+  margin-bottom: 0.25em;
+  color: var(--text-accent);
+  font-style: normal;
+}
+
+/* --- Elements: zebra tables --------------------------------- */
+.newsprint-table-zebra {
+  --table-row-alt-background: var(--background-modifier-hover);
+}
+
+/* --- Elements: alternate checkboxes ------------------------- */
+/* Any non-space task state renders as "done" by default; these
+   states keep their text un-struck and draw a glyph instead. */
+.newsprint-checkboxes .markdown-rendered li.task-list-item[data-task]:not([data-task="x"]):not([data-task="X"]):not([data-task=" "]),
+.newsprint-checkboxes .markdown-preview-view li.task-list-item[data-task]:not([data-task="x"]):not([data-task="X"]):not([data-task=" "]),
+.newsprint-checkboxes .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task]:not([data-task="x"]):not([data-task="X"]):not([data-task=" "]) {
+  --checklist-done-decoration: none;
+  --checklist-done-color: var(--text-normal);
+}
+
+.newsprint-checkboxes li[data-task="-"] > input.task-list-item-checkbox,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="-"],
+.newsprint-checkboxes li[data-task=">"] > input.task-list-item-checkbox,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task=">"],
+.newsprint-checkboxes li[data-task="<"] > input.task-list-item-checkbox,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="<"],
+.newsprint-checkboxes li[data-task="?"] > input.task-list-item-checkbox,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="?"],
+.newsprint-checkboxes li[data-task="!"] > input.task-list-item-checkbox,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="!"],
+.newsprint-checkboxes li[data-task="i"] > input.task-list-item-checkbox,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="i"],
+.newsprint-checkboxes li[data-task="*"] > input.task-list-item-checkbox,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="*"] {
+  background-color: transparent;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.newsprint-checkboxes li[data-task="-"] > input.task-list-item-checkbox::after,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="-"]::after,
+.newsprint-checkboxes li[data-task=">"] > input.task-list-item-checkbox::after,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task=">"]::after,
+.newsprint-checkboxes li[data-task="<"] > input.task-list-item-checkbox::after,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="<"]::after,
+.newsprint-checkboxes li[data-task="?"] > input.task-list-item-checkbox::after,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="?"]::after,
+.newsprint-checkboxes li[data-task="!"] > input.task-list-item-checkbox::after,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="!"]::after,
+.newsprint-checkboxes li[data-task="i"] > input.task-list-item-checkbox::after,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="i"]::after,
+.newsprint-checkboxes li[data-task="*"] > input.task-list-item-checkbox::after,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="*"]::after {
+  -webkit-mask-image: none;
+  mask-image: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  font-family: var(--font-interface);
+  font-size: 0.72em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* [-] cancelled */
+.newsprint-checkboxes li[data-task="-"] > input.task-list-item-checkbox,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="-"] {
+  border-color: var(--text-faint);
+}
+.newsprint-checkboxes li[data-task="-"] > input.task-list-item-checkbox::after,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="-"]::after {
+  content: "\2013";
+  color: var(--text-faint);
+}
+.newsprint-checkboxes .markdown-rendered li.task-list-item[data-task="-"],
+.newsprint-checkboxes .markdown-preview-view li.task-list-item[data-task="-"],
+.newsprint-checkboxes .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="-"] {
+  --checklist-done-decoration: line-through;
+  --checklist-done-color: var(--text-faint);
+}
+
+/* [>] forwarded */
+.newsprint-checkboxes li[data-task=">"] > input.task-list-item-checkbox,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task=">"] {
+  border-color: var(--color-cyan);
+}
+.newsprint-checkboxes li[data-task=">"] > input.task-list-item-checkbox::after,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task=">"]::after {
+  content: "\2192";
+  color: var(--color-cyan);
+}
+
+/* [<] scheduled */
+.newsprint-checkboxes li[data-task="<"] > input.task-list-item-checkbox,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="<"] {
+  border-color: var(--color-orange);
+}
+.newsprint-checkboxes li[data-task="<"] > input.task-list-item-checkbox::after,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="<"]::after {
+  content: "\2190";
+  color: var(--color-orange);
+}
+
+/* [?] question */
+.newsprint-checkboxes li[data-task="?"] > input.task-list-item-checkbox,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="?"] {
+  border-color: var(--color-blue);
+}
+.newsprint-checkboxes li[data-task="?"] > input.task-list-item-checkbox::after,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="?"]::after {
+  content: "?";
+  color: var(--color-blue);
+}
+
+/* [!] important */
+.newsprint-checkboxes li[data-task="!"] > input.task-list-item-checkbox,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="!"] {
+  border-color: var(--color-red);
+}
+.newsprint-checkboxes li[data-task="!"] > input.task-list-item-checkbox::after,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="!"]::after {
+  content: "!";
+  color: var(--color-red);
+}
+
+/* [i] info */
+.newsprint-checkboxes li[data-task="i"] > input.task-list-item-checkbox,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="i"] {
+  border-color: var(--color-blue);
+}
+.newsprint-checkboxes li[data-task="i"] > input.task-list-item-checkbox::after,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="i"]::after {
+  content: "i";
+  color: var(--color-blue);
+  font-style: italic;
+  font-family: var(--font-text);
+}
+
+/* [*] star */
+.newsprint-checkboxes li[data-task="*"] > input.task-list-item-checkbox,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="*"] {
+  border-color: var(--color-yellow);
+}
+.newsprint-checkboxes li[data-task="*"] > input.task-list-item-checkbox::after,
+.newsprint-checkboxes input.task-list-item-checkbox[data-task="*"]::after {
+  content: "\2605";
+  color: var(--color-yellow);
+  font-size: 0.65em;
 }

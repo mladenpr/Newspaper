@@ -99,12 +99,46 @@ or set the others under **Settings → Appearance → Font**:
 - Write `###### like this` above a heading for a newspaper-style kicker.
 - The interface defaults to **Georgia**; your own choice under
   **Settings → Appearance → Font** always wins, so set a sans there if
-  you prefer quieter chrome. Note text is controlled separately under
-  **Text font**.
+  you prefer quieter chrome (or flip **Sans-serif interface** in Style
+  Settings). Note text is controlled separately under **Text font**.
 - The theme keeps the window frame **opaque paper** even when
   **Settings → Appearance → Translucent window** is on — no grey glass.
   If you still see system material anywhere (macOS Liquid Glass), turn
   that setting off.
+
+## Settings
+
+Newspaper works out of the box with no plugins. Install the free
+[Style Settings](https://github.com/mgmeyers/obsidian-style-settings)
+community plugin and a **Newspaper** section appears under
+**Settings → Style Settings** with:
+
+- **Layout** — text width slider; focus mode (hides the ribbon and status
+  bar and fades the tab bar until hovered; also a command).
+- **Typography** — line height; sans-serif interface; justified text with
+  hyphenation; a drop cap on the lead paragraph; hide the masthead and
+  section rules.
+- **Paper & ink** — light paper tone (Ivory / Bright / Sepia) and dark ink
+  tone (Charcoal / True black for OLED screens).
+- **Elements** — link underlines (hairline / on hover / none); blockquote
+  style (left rule / centered pull quote); table style (hairlines / zebra
+  rows); alternate checkboxes (`[-]` cancelled, `[>]` forwarded,
+  `[<]` scheduled, `[?]` question, `[!]` important, `[i]` info, `[*]` star).
+
+### Without Style Settings
+
+- **Per-note width**: add `narrow`, `wide` or `full` to a note's
+  `cssclasses` property — no plugin needed.
+- **Global width or line height**: a one-line CSS snippet
+  (**Settings → Appearance → CSS snippets**):
+
+  ```css
+  body { --newsprint-line-width: 55em; --newsprint-line-height: 1.6; }
+  ```
+
+- The remaining options are switched by a class on `body`, which only the
+  plugin can add; their rules live under "15 · SETTINGS" in `theme.css` if
+  you want to copy one into a snippet permanently.
 
 ## Versioning and releases
 
