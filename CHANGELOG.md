@@ -9,6 +9,16 @@ adheres to [Semantic Versioning](https://semver.org) as described in
 
 Nothing yet.
 
+## [1.3.0] — 2026-09-21
+
+### Added
+
+- **Claret** heading colour preset — the classic broadsheet headline red
+  for H1–H3 and the note title, lifted to a soft rose in dark mode.
+- **Highlight colour** preset for `==highlighted==` text: Marker yellow
+  (default) / Rose / Sage / Sky, each a translucent wash tuned for light
+  and dark mode.
+
 ## [1.2.0] — 2026-09-21
 
 ### Added
