@@ -9,6 +9,19 @@ adheres to [Semantic Versioning](https://semver.org) as described in
 
 Nothing yet.
 
+## [1.2.0] — 2026-09-21
+
+### Added
+
+- Heading colours in Style Settings: an Ink / Accent / Muted / Custom
+  preset (Accent and Muted colour H1–H3 and the note title), plus per-level
+  light-and-dark colour pickers for H1–H6 that apply under Custom.
+
+### Changed
+
+- The H6 kicker now takes its colour from Obsidian's `--h6-color` variable
+  (still muted by default) so it can be themed like the other levels.
+
 ## [1.1.0] — 2026-09-10
 
 Theme options, with and without the Style Settings plugin.

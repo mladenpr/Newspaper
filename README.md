@@ -118,6 +118,9 @@ community plugin and a **Newspaper** section appears under
 - **Typography** — line height; sans-serif interface; justified text with
   hyphenation; a drop cap on the lead paragraph; hide the masthead and
   section rules.
+- **Headings** — colour preset: Ink / Accent / Muted (H1–H3 and the note
+  title) / Custom, with per-level light-and-dark colour pickers for all six
+  levels when Custom is selected.
 - **Paper & ink** — light paper tone (Ivory / Bright / Sepia) and dark ink
   tone (Charcoal / True black for OLED screens).
 - **Elements** — link underlines (hairline / on hover / none); blockquote

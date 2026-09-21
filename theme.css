@@ -205,6 +205,7 @@ body {
   --h6-size: 0.8em;
   --h6-weight: 600;
   --h6-line-height: 1.4;
+  --h6-color: var(--text-muted);
 
   --inline-title-size: 2.2em;
   --inline-title-weight: 700;
@@ -252,7 +253,7 @@ body {
   font-family: var(--font-interface);
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--text-muted);
+  color: var(--h6-color);
 }
 
 /* ------------------------------------------------------------
@@ -597,6 +598,80 @@ settings:
     type: class-toggle
     default: false
   -
+    id: newsprint-headings
+    title: Headings
+    type: heading
+    level: 1
+    collapsed: false
+  -
+    id: newsprint-heading-color
+    title: Heading colour
+    description: "Ink is the default. Accent and Muted colour H1–H3 (and the note title); Custom uses the pickers below for all six levels."
+    type: class-select
+    allowEmpty: false
+    default: newsprint-headings-ink
+    options:
+      -
+        label: Ink (default)
+        value: newsprint-headings-ink
+      -
+        label: Accent
+        value: newsprint-headings-accent
+      -
+        label: Muted
+        value: newsprint-headings-muted
+      -
+        label: Custom
+        value: newsprint-headings-custom
+  -
+    id: newsprint-h1-color
+    title: H1 colour (also the note title)
+    description: "Used only when Heading colour is set to Custom."
+    type: variable-themed-color
+    format: hex
+    default-light: '#1e1b16'
+    default-dark: '#eae4d8'
+  -
+    id: newsprint-h2-color
+    title: H2 colour
+    description: "Used only when Heading colour is set to Custom."
+    type: variable-themed-color
+    format: hex
+    default-light: '#1e1b16'
+    default-dark: '#eae4d8'
+  -
+    id: newsprint-h3-color
+    title: H3 colour
+    description: "Used only when Heading colour is set to Custom."
+    type: variable-themed-color
+    format: hex
+    default-light: '#1e1b16'
+    default-dark: '#eae4d8'
+  -
+    id: newsprint-h4-color
+    title: H4 colour
+    description: "Used only when Heading colour is set to Custom."
+    type: variable-themed-color
+    format: hex
+    default-light: '#1e1b16'
+    default-dark: '#eae4d8'
+  -
+    id: newsprint-h5-color
+    title: H5 colour
+    description: "Used only when Heading colour is set to Custom."
+    type: variable-themed-color
+    format: hex
+    default-light: '#1e1b16'
+    default-dark: '#eae4d8'
+  -
+    id: newsprint-h6-color
+    title: H6 colour (kicker)
+    description: "Used only when Heading colour is set to Custom."
+    type: variable-themed-color
+    format: hex
+    default-light: '#4a4237'
+    default-dark: '#b9b1a4'
+  -
     id: newsprint-paper
     title: Paper & ink
     type: heading
@@ -760,6 +835,31 @@ settings:
 .newsprint-no-rules .markdown-source-view.mod-cm6 .HyperMD-header-2 {
   border-bottom: none;
   padding-bottom: 0;
+}
+
+/* --- Headings: colour presets and custom colours ------------ */
+.newsprint-headings-accent {
+  --h1-color: var(--text-accent);
+  --h2-color: var(--text-accent);
+  --h3-color: var(--text-accent);
+  --inline-title-color: var(--text-accent);
+}
+
+.newsprint-headings-muted {
+  --h1-color: var(--text-muted);
+  --h2-color: var(--text-muted);
+  --h3-color: var(--text-muted);
+  --inline-title-color: var(--text-muted);
+}
+
+.newsprint-headings-custom {
+  --h1-color: var(--newsprint-h1-color, var(--text-normal));
+  --h2-color: var(--newsprint-h2-color, var(--text-normal));
+  --h3-color: var(--newsprint-h3-color, var(--text-normal));
+  --h4-color: var(--newsprint-h4-color, var(--text-normal));
+  --h5-color: var(--newsprint-h5-color, var(--text-normal));
+  --h6-color: var(--newsprint-h6-color, var(--text-muted));
+  --inline-title-color: var(--newsprint-h1-color, var(--text-normal));
 }
 
 /* --- Paper & ink: alternate light tones --------------------- */
